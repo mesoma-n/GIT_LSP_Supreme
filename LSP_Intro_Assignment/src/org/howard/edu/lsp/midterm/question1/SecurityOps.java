@@ -1,36 +1,42 @@
 package org.howard.edu.lsp.midterm.question1;
 
 public class SecurityOps {
+	/**
+     * Encrypts a message by separating letters and digits based on even and odd indices,
+     * ignoring punctuation and whitespace.
+     */
 
-	public static String encrypt (String text) {
-		// TODO Auto-generated method stub
-		StringBuilder encrypted = new StringBuilder();
+	    public static String encrypt(String  text) {
+	        StringBuilder encrypted = new StringBuilder();
 
-        for (int i = 0; i < text.length(); i++) {
-            char ch = text.charAt(i);
-            if (Character.isLetterOrDigit(ch)) {
-                encrypted.append(ch);
-            }
-        }
+	        // Filter out non-alphanumeric characters before processing
+	        StringBuilder filtered = new StringBuilder();
+	        for (int i = 0; i <  text.length(); i++) {
+	            char ch =  text.charAt(i);
+	            if (Character.isLetterOrDigit(ch)) {
+	                filtered.append(ch);
+	            }
+	        }
 
-        String filtered = encrypted.toString();
-        StringBuilder evenChars = new StringBuilder();
-        StringBuilder oddChars = new StringBuilder();
+	        // Separate even and odd characters from the filtered message
+	        StringBuilder evenChars = new StringBuilder();
+	        StringBuilder oddChars = new StringBuilder();
+	        for (int i = 0; i < filtered.length(); i++) {
+	            char ch = filtered.charAt(i);
+	            if (i % 2 == 0) {
+	                evenChars.append(ch);
+	            } else {
+	                oddChars.append(ch);
+	            }
+	        }
 
-        for (int i = 0; i < filtered.length(); i++) {
-            char ch = filtered.charAt(i);
-            if (i % 2 == 0) {
-                evenChars.append(ch);
-            } else {
-                oddChars.append(ch);
-            }
-        }
-
-        encrypted.setLength(0); // Clear the StringBuilder
-        encrypted.append(evenChars).append(oddChars);
-        return encrypted.toString();
+	        // Clear the original StringBuilder and append the encrypted result
+	        encrypted.setLength(0);
+	        encrypted.append(evenChars).append(oddChars);
+	        return encrypted.toString();
+	    }
     }
 		
-	}
+	
 
 
