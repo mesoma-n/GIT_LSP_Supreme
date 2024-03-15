@@ -4,6 +4,9 @@ public class SecurityOps {
 	/**
      * Encrypts a message by separating letters and digits based on even and odd indices,
      * ignoring punctuation and whitespace.
+     *
+     * @param text The message to encrypt (String).
+     * @return The encrypted message (String).
      */
 
 	    public static String encrypt(String  text) {
