@@ -71,7 +71,7 @@ class IntegerRange implements Range {
 	            IntegerRange otherRange = (IntegerRange) other;
 	            return this.contains(otherRange.stop) || otherRange.contains(this.stop);
 	        } else {
-	            throw new IllegalArgumentException("BooHoo you!");
+	            throw new IllegalArgumentException("This cant work!");
 	        }
 	    }
 
