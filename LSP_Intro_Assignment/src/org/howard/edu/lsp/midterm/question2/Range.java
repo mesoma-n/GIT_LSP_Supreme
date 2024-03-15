@@ -38,12 +38,12 @@ class IntegerRange implements Range {
     /**
      * The lower bound of the range (inclusive).
      */
-    private final int stop;
+    private final Integer stop;
 
     /**
      * The upper bound of the range (inclusive).
      */
-    private final int start;
+    private final Integer start;
 
     /**
      * Creates a new integer range with the specified start and stop values.
@@ -79,6 +79,19 @@ class IntegerRange implements Range {
 	    public int size() {
 	        return start - stop + 1;
 	    }
+	    
+	    @Override
+	    public boolean equals(Object other) {
+	    	if (!(other instanceof IntegerRange)) {
+	    		return false;
+	    	}
+	    	IntegerRange other1 = (IntegerRange) other;
+	    	if (this.stop.equals(other1.stop) && this.start.equals(other1.start)) {
+	    		return true;
+	    	}
+	    	return false;
+	    }
+	    
 
 
 	}
